@@ -1,24 +1,34 @@
 
-function carregar(){
-    var msg = document.getElementById('msg')
-    var img = document.getElementById('imagem')
-    var data = new Date()
-    //var hora = data.getHours()
-    var  hora = 22
-    msg.innerHTML = `Agora são ${hora} horas.`
+function verificar(){
+    let msg = document.getElementById('msg')
+    let img = document.getElementById('imagem')
+    //let data = new Date()
+    let  h = document.getElementById('txth')
+    let hora = Number(h.value)
+    
 
-    if (hora >= 0 && hora < 12){
-        //BOM DIA!
-        img.src = 'manha.png'
-        document.body.style.background = '#e2cd9f'
-    } else if (hora >= 12 && hora <= 18){
-        // BOA TARDE!
-        img.src = 'tarde.png'
-        document.body.style.background = '#b9846f'
+    if ( h.value.length == 0 || Number(h.value) >= 24) {
+        alert('[ERRO] Digite um horário válido!')
     } else {
-        //  BOA NOITE!
-        img.src = 'noite.png'
-        document.body.style.background = '#515154'
-    }
 
+        if (hora >= 0 && hora < 12){
+            //BOM DIA!
+            img.src = 'img/manha.png'
+            document.body.style.background = '#dec269'
+            msg.innerHTML = `Agora são ${hora} horas da Manhã.`
+        } else if (hora >= 12 && hora <= 18){
+            // BOA TARDE!
+            img.src = 'img/tarde.png'
+            document.body.style.background = '#ff5330'
+            msg.innerHTML = `Agora são ${hora} horas da Tarde.`
+        } else {
+            //  BOA NOITE!
+            img.src = 'img/noite.png'
+            document.body.style.background = '#1235a5'
+            msg.innerHTML = `Agora são ${hora} horas da Noite.`
+        }
+    
+
+    }
+    
 }
